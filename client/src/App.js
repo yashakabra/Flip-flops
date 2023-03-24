@@ -10,6 +10,8 @@ import MyRequest from "./components/pages/MyRequest";
 import AddStory from "./components/pages/AddStory";
 import PrivateRoute from "./components/pages/PrivateRoute";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from "react-bootstrap";
+import { AuthProvider } from "./context/AuthContext.js";
 
 
 const App = () => {
@@ -18,17 +20,17 @@ const App = () => {
       <div>
         <BrowserRouter>
           <AuthProvider>
-            <Switch>
+            <Routes>
               <Route path="/userlogin" element={<UserLogin/>}/>
               <Route path="/usersignup" element={<UserSignUp/>}/>
               <Route path="/adminlogin" element={<AdminLogin/>}/>
-              <PrivateRoute path="/adminpanel" element={<AdminPanel/>}/>
+              {/* <PrivateRoute path="/adminpanel" element={<AdminPanel/>}/>
               <PrivateRoute path="/adminpanel/:id" element={<AdminDetailPanel/>}/>
               <PrivateRoute path="/home" element={<Home/>}/>
               <PrivateRoute path="/home/:id" element={<PostDetail/>}/>
               <PrivateRoute path="/myrequest" element={<MyRequest/>}/>
-              <PrivateRoute path="/addstory" element={<AddStory/>}/>
-            </Switch>
+              <PrivateRoute path="/addstory" element={<AddStory/>}/> */}
+            </Routes>
           </AuthProvider>
         </BrowserRouter>
       </div>

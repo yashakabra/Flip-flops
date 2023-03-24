@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Styles/UserLogin.css';
-import adminloginimg from '../Images/adminlogin.svg'
 
 const Adminlogin = () => {
   return (
@@ -11,7 +10,7 @@ const Adminlogin = () => {
             <div class="row no-gutter">
                
                 <div class="col-md-6 d-none d-md-flex bg-image">
-                <img src={adminloginimg} alt="" style={{ maxHeight: 650, maxWidth: 700 ,marginLeft:"10%"}} />
+                <img alt="" style={{ maxHeight: 650, maxWidth: 700 ,marginLeft:"10%"}} />
                 </div>
 
 
