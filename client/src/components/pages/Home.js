@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "react-bootstrap";
-import signimg from '../Images/Sign.jpg';
-import '../Styles/UserLogin.css'
+import signimg from '../images/Sign.jpg';
+import '../styles/UserLogin.css'
 import { useUserAuth } from "../../context/UserAuthContext.js";
 import { Alert } from "react-bootstrap";
 import { useNavigate } from "react-router";

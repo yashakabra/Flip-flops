@@ -1,6 +1,6 @@
 import React from 'react';
-import '../Styles/UserLogin.css'
-import signimg from '../Images/Sign.jpg'
+import '../styles/UserLogin.css'
+import signimg from '../images/Sign.jpg'
 import { Alert } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
