@@ -1,12 +1,12 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { useAuth } from "../../context/AuthContext.js"
+import { useUserAuth } from "../../context/UserAuthContext.js"
 import { Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
 
 export default function PrivateRoute({ component: Component, ...rest }) {
-  const { currentUser } = useAuth()
+  const { currentUser } = useUserAuth()
     const navigate = useNavigate();
   return (
     <div>
