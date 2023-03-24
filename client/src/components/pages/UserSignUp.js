@@ -4,6 +4,7 @@ import signimg from '../Images/Sign.jpg';
 import '../Styles/UserLogin.css'
 import { useUserAuth } from "../../context/UserAuthContext.js";
 import { Alert } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 
 
@@ -13,7 +14,7 @@ const UserSignUp = (props) => {
     const [error, setError]  =useState("");
     const [loading, setLoading] = useState(false);
     const {signUp, currentUser} = useUserAuth();
-
+    const navigate = useNavigate();
 
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -21,6 +22,7 @@ const UserSignUp = (props) => {
         try {
             setLoading(true);
             await signUp(email, password);
+            navigate('/userlogin');
         }catch(error){
             setError("Failed to create an account !");
             console.log(error);
