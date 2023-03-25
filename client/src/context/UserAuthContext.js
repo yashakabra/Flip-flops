@@ -17,6 +17,8 @@ export function UserAuthContextProvider({ children }) {
   const [token, setToken] = useState("");
   const [loading, setLoading] = useState(true);
 
+  console.log("INSIDE AUTH CONTEXT", token);
+
   function signUp(email, password) {
     try {
       const res = createUserWithEmailAndPassword(auth, email, password);
@@ -46,11 +48,11 @@ export function UserAuthContextProvider({ children }) {
       setLoading(false);
       if (currentUser) {
         await setUser(currentUser);
-          // await currentUser.getIdToken().then(async (token) => {
-          // await setToken(token);
-        // });
-      // } else {
-        // setUser("");
+          await currentUser.getIdToken().then(async (token) => {
+          await setToken(token);
+        });
+      } else {
+        setUser("");
       }
 
     });

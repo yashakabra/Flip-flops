@@ -19,11 +19,13 @@ const AddStory = () => {
   const [date, setDate] = useState('');
   const [blog, setBlog] = useState('');
 
-  const { token } = useUserAuth();
+  const { token, user } = useUserAuth();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
+      email: user.email,
+      statusCode:1,
       name: name,
       age: age,
       place: place,

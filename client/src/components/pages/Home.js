@@ -5,11 +5,28 @@ import homeimg from '../images/Homeimg.jpg'
 import secure from '../images/secure.png'
 import govtverified from '../images/governmentverified.png';
 import easytouse from '../images/easytouse.png';
+import { useState, useEffect } from "react";
+import { useUserAuth } from "../../context/UserAuthContext";
+import HomePageCard from "../utils/HomePageCard";
+import { getAllUserPost } from "../../api/UserAPI";
+
 const Home = (props) => {
     
+  const {token, user} = useUserAuth();
+  const [posts, setPosts] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async()=>{
+      const packet = {
+        token:token,
+      };
+      const response = await getAllUserPost(packet);
+      setPosts(response.data);
+    };
+    fetchData();
+  }, [token])
 
-
+console.log("INSIDE HOME   ", posts)
 
     return (
         <>
@@ -20,9 +37,6 @@ const Home = (props) => {
             <div className="col-md-5 d-none d-md-flex bg-image mt-4">
               <img src={homeimg} alt="" style={{ maxHeight: 500, maxWidth: 500, marginLeft: "10%" }} />
             </div>
-
-
-
             <div className="text-center col-md-7 mt-5 ">
               <div className="login d-flex align-items-center py-8">
 
@@ -56,22 +70,14 @@ const Home = (props) => {
 
       <div className="main">
         <h1 className="story-heading"  style={{ fontSize: "60px" }}>Our Stories</h1>
+
       <div className="card-container mt-3">
-      
-       
+        {posts &&
+          posts.map((post) => {
+            return <HomePageCard key={post.email} details={post}/>
+          })
+        }
       </div>
-
-
-
-   
-
-
-
-
-
-
-
-
     </div>
 
       

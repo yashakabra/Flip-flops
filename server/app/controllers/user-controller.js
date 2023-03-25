@@ -61,8 +61,8 @@ async function listUploads() {
 
 export const addUserPostDetails = async (request, response) => {
   const obj = request.body;
+  console.log(obj);
   const resp=await storeWithProgress(obj);
-  
   try {
     response.status(200).json("your data saved");
   } catch (error) {
@@ -71,11 +71,11 @@ export const addUserPostDetails = async (request, response) => {
 };
 
 export const getValidUsers = async (request, response) => {
-
+  console.log("KLKLK");
   const res=await listUploads();
     
   const res2=await updateUsersForValidity(res);
-  
+  console.log(res2);
   try {
     response.status(200).json(res2.users);
   } catch (error) {

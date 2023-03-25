@@ -5,7 +5,7 @@ const URL = process.env.REACT_APP_URL || 'http://localhost:8000';
 export const getAllUserPost = async (packet) => {
     const token = packet.token;
     try {
-        return await axios.get(`${URL}/user/getAll`, {
+        return await axios.get(`${URL}/user/getValidUsers`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token,
@@ -20,7 +20,7 @@ export const createRequest = async (packet) => {
     const token = packet.token;
     console.log(packet);
     try {
-        return await axios.post(`${URL}/user/createRequest`, packet.data, {
+        return await axios.post(`${URL}/user/addUserPostDetails`, packet.data, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token,
@@ -28,5 +28,19 @@ export const createRequest = async (packet) => {
         });
     } catch (error) {
         console.log("ERROR IN CREATING REQUEST  ", error);
+    }
+}
+
+export const getSinglePostDetails = async (packet) => {
+    const token = packet.token;
+    try{
+        return await axios.get(`${URL}/user/${packet.email}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token,
+            }
+        });
+    }catch(error){
+        console.log("ERROR IN GETTING DETAILS OF SINGLE USER ", error);
     }
 }
