@@ -1,0 +1,243 @@
+@media(max-width:1291px)
+{
+  .col-md-5 img{
+    width: 420px;
+    height: 500px;
+  } 
+  
+}
+@media(max-width:1100px)
+{
+  .col-md-5 img{
+    width: 310px;
+    height:600px;
+  } 
+  
+}
+@media(max-width:800px)
+{
+  .col-md-5 img{
+    width: 300px;
+    height: 600px;
+  } 
+}
+  @media(max-width:750px)
+{
+  .col-md-5 img{
+    width: 0px;
+    height: 0px;
+  } 
+  .col-md-7
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+}
+
+
+/*trust css
+*/
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+body{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: white;
+}
+.wrapper{
+  display: grid;
+  margin: 200px 1px auto;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  border-radius: 40px;
+  }
+@media (max-width: 700px) {
+  .wrapper{
+    margin: 200px auto;
+    border-radius: 40px;
+  }
+}
+.wrapper .box{
+  width: 400px;
+  margin: 0 auto;
+  position: relative;
+  perspective: 1000px;
+  border-radius: 40px;
+}
+.wrapper .box .front-face{
+  background:rgb(255, 255, 255);
+  height: 220px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
+  transition: all 0.5s ease;
+  border-radius: 40px;
+
+}
+
+.box .front-face span,
+.box .back-face span{
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color:#0095b6;
+}
+
+.box .front-face span{
+  background: black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.box .back-face{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 220px;
+  width: 100%;
+  padding: 16px;
+  color:black;
+  opacity: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  background: white;
+  transform: translateY(110px) rotateX(-90deg);
+  box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
+  transition: all 0.5s ease;
+  border-radius: 40px;
+}
+.box .back-face p{
+  margin-top: 10px;
+  text-align: justify;
+  
+}
+.box:hover .back-face{
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+.box:hover .front-face{
+  opacity: 0;
+  transform: translateY(-110px) rotateX(90deg);
+  
+}
+
+.front-face {
+  display: flex;
+  align-items: center;
+}
+
+
+
+/carding/
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+/*body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: white;
+}*/
+
+.card-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  gap: 30px 50px;
+}
+
+.card-container .drop {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: white;
+  display: flex;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15), -0px 0 0px rgba(0, 0, 0, 0.15), 5px 5px 5px rgba(0, 0, 0, 0.15);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.card-container .drop .content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  gap: 5px;
+}
+
+.card-container .drop .content .profile {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: #eff0f4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  position: relative;
+  padding: 10px 25px;
+  color: #fff;
+  border-radius: 15px;
+  font-weight: 500;
+  font-size: 15px;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  opacity: 0.75;
+  background-color: #0095b6;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+button::before {
+   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 5px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+h2 {
+  padding-bottom: 10px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+}

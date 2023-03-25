@@ -1,4 +1,5 @@
 import '../styles/AddStory.css';
+import {useState,react} from 'react';
 import adminloginimg from '../images/Anxiety.png';
 import { Button,Row,Col,Image} from 'react-bootstrap';
 import { TextField,MenuItem,Card,Typography,Box} from "@mui/material";
@@ -7,6 +8,20 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 
 const AddStory = () => {
+    const [name,setName]=useState('');
+    const [age,setAge]=useState('');
+    const [place,setPlace]=useState('');
+    const [disasterType,setDisasterType]=useState('');
+    const [aadharNo,setAadharNo]=useState('');
+    const [phoneNo,setPhoneNo]=useState('');
+    const [amountNeeded,setAmountNeeded]=useState('');
+    const [upiId,setUpiId]=useState('');
+    const [date,setDate]=useState('');
+    const [blog,setBlog]=useState('');
+
+    
+
+
     const disasters = [
         {
           label: 'Earthquakes',
@@ -50,6 +65,10 @@ const AddStory = () => {
         },
     
       ];
+      
+
+
+
   return (
     <>
         
@@ -59,10 +78,7 @@ const AddStory = () => {
                
                 <div class="col-md-6 d-none d-md-flex bg-image">
                 <img src={adminloginimg} alt="" style={{border:"none",height:"70%",width:"90%",marginTop:"110px",marginLeft:"60px"}} />
-                </div>
-
-
-                
+                </div>  
                 <div class="col-md-6 " style={{overflow:"auto",maxHeight:"710px"}}>
                     <div class="login d-flex align-items-center py-9">
 
@@ -83,6 +99,8 @@ const AddStory = () => {
                     label="Full Name"
                     type="text"
                     id="name" 
+                    value={name}
+                    onChange={(e)=>{setName(e.target.value)}}
                   />
                                      <TextField
                     margin="normal"
@@ -92,6 +110,8 @@ const AddStory = () => {
                     label="Age"
                     type="text"
                     id="age"
+                    value={age}
+                    onChange={(e)=>{setAge(e.target.value)}}
                   />
                   <TextField
                     margin="normal"
@@ -102,6 +122,8 @@ const AddStory = () => {
                     type="text"
                     id="curAdd"
                     helperText=" "
+                    value={place}
+                    onChange={(e)=>{setPlace(e.target.value)}}
                   />
 
 
@@ -110,23 +132,6 @@ const AddStory = () => {
 
 
 
-
-
-
-
-
-
-
-
-                                        {/* <div class="form-group mb-3 mt-3">
-                                            <input id="name" type="text" placeholder="Full Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" />
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <input id="age" type="text" placeholder="Current Age" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
-                                        </div>
-                                        <div class="form-group mb-3 mt-3">
-                                            <input id="location" type="text" placeholder="Place of Disaster/Mishap" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" />
-                                        </div> */}
                                         <Row>
                     <Col>
                     <Box
@@ -144,13 +149,15 @@ const AddStory = () => {
           label="Type of Disaster that affected"
           defaultValue="Earthquake"
           helperText=""
-        >
+          value={disasterType}
+          onChange={(e)=>{setDisasterType(e.target.value)}}
+        />
           {disasters.map((option) => (
             <MenuItem key={option.value} value={option.value}>
             {option.label}
             </MenuItem>
           ))}
-        </TextField>
+        
       </div>
     </Box>
                     </Col>
@@ -162,6 +169,8 @@ const AddStory = () => {
                               label="Date of Disaster"
                               type="date"
                               variant="outlined"
+                              value={date}
+                              onChange={(e)=>{setDate(e.target.value)}}
                               InputLabelProps={{
                                 shrink: true,
                               }}
@@ -177,16 +186,20 @@ const AddStory = () => {
                     label="AADHAR Card Number"
                     type="text"
                     id="aadhar"
+                    value={aadharNo}
+                    onChange={(e)=>{setAadharNo(e.target.value)}}
                   />
 
 <TextField
                     margin="normal"
                     required
                     fullWidth
-                    name="aadhar"
+                    name="phone"
                     label="Phone Number"
                     type="tel"
                     id="phoneNo"
+                    value={phoneNo}
+                    onChange={(e)=>{setPhoneNo(e.target.value)}}
                     inputProps={{ pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}" }}
                   />
 
@@ -198,6 +211,8 @@ const AddStory = () => {
                     label="UPI ID Number"
                     type="text"
                     id="upi"
+                    value={upiId}
+                    onChange={(e)=>{setUpiId(e.target.value)}}
                   />
                   <TextField
                     margin="normal"
@@ -208,6 +223,8 @@ const AddStory = () => {
                     label="Amount Needed to resettle"
                     type="text"
                     id="amount"
+                    value={amountNeeded}
+                    onChange={(e)=>{setAmountNeeded(e.target.value)}}
                     
 
                   >$</TextField>
@@ -234,6 +251,8 @@ const AddStory = () => {
                     id="blog"
                     rows={5}
                     maxRows={50}
+                    value={blog}
+                    onChange={(e)=>{setBlog(e.target.value)}}
                   /> 
 
 

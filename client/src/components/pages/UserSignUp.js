@@ -13,7 +13,7 @@ const UserSignUp = (props) => {
     const [password, setPassword] = useState("");
     const [error, setError]  =useState("");
     const [loading, setLoading] = useState(false);
-    const {signUp, currentUser} = useUserAuth();
+    const {signUp, user} = useUserAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async(event) => {
@@ -39,13 +39,13 @@ const UserSignUp = (props) => {
                     <div class="col-md-6 d-none d-md-flex bg-image">
                         <img alt="" style={{ maxHeight: 650, maxWidth: 700, marginLeft: "10%" }} />
                     </div>
-                    {currentUser && currentUser.email}
+                    {/* {u && currentUser.email} */}
                     <div class="col-md-6 mt-5 ">
                         <div class="login d-flex align-items-center py-5">
                             <div class="container mt-5">
                                 <div class="row">
                                     <div class="col-lg-10 col-xl-7 mx-auto mt-5">
-                                    {currentUser && currentUser.email}
+                                    {/* {currentUser && currentUser.email} */}
                                         <h3 class="text-center display-4" style={{ color: "0095b6" }}>User SignUp</h3>
                                         {error && <Alert>{error}</Alert>}
                                         <form  onSubmit={handleSubmit}>
