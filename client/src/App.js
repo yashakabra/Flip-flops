@@ -10,11 +10,13 @@ import MyRequest from "./components/pages/MyRequest";
 import AddStory from "./components/pages/AddStory";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { UserAuthContextProvider } from "./context/UserAuthContext";
+import NavBar from "./components/utils/NavBar";
 
 
 const App = () => {
   return (
     <UserAuthContextProvider>
+      <NavBar/>
       <BrowserRouter>
         <Routes>
           <Route path="/userlogin" element={<UserLogin />} />

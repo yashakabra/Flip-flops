@@ -2,10 +2,10 @@ import axios from 'axios';
 
 const URL = process.env.REACT_APP_URL || 'http://localhost:8000';
 
-export const getAllPendingRequest = async (packet) => {
-    const token = data.token;
+export const getUnverifiedUsers = async (packet) => {
+    const token = packet.token;
     try {
-        return await axios.get(`${URL}/admin/getAll`, {
+        return await axios.get(`${URL}/admin/getUnverifiedUsers`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token,

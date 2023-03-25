@@ -16,7 +16,7 @@ export const getAllUserPost = async (packet) => {
     }
 }
 
-export const createRequest = async (packet) => {
+export const addUserPostDetails = async (packet) => {
     const token = packet.token;
     console.log(packet);
     try {
@@ -27,7 +27,7 @@ export const createRequest = async (packet) => {
             }
         });
     } catch (error) {
-        console.log("ERROR IN CREATING REQUEST  ", error);
+        console.log("ERROR IN ADDING REQUEST  ", error);
     }
 }
 
