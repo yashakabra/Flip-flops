@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import '../styles/UserLogin.css';
 import { useState } from 'react';
 
-const Adminlogin = () => {
+const PvtAdminLogin = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,10 +15,9 @@ const Adminlogin = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
-        console.log(email, password);
-        console.log(process.env.REACT_APP_ADMIN_EMAIL_ID, process.env.REACT_APP_ADMIN_PASSWORD);
-        if((email === process.env.REACT_APP_ADMIN_EMAIL_ID )&& (password === process.env.REACT_APP_ADMIN_PASSWORD)){
-            navigate('/adminpanel');
+        if((email === process.env.REACT_APP_PVT_ADMIN_EMAIL_ID ) && (password === process.env.REACT_APP_PVT_ADMIN_PASSWORD)){
+            console.log(":HIII")
+            navigate('/pvtadminpanel');
         }else{
             setError("INVALID CREDENTIALS");
         }
@@ -38,7 +37,7 @@ const Adminlogin = () => {
 
                                     <div class="row">
                                         <div class="col-lg-10 col-xl-7 mx-auto mt-5">
-                                            <h3 class="text-center display-4" style={{ color: "#0095b6" }}>Government Admin Login</h3>
+                                            <h3 class="text-center display-4" style={{ color: "#0095b6" }}>Private Admin Login</h3>
                                             {error && <Alert variant='danger'>{error}</Alert>}
                                             <form onSubmit={submitHandler}>
                                                 <div class="form-group mb-3 mt-3">
@@ -66,4 +65,4 @@ const Adminlogin = () => {
 
 }
 
-export default Adminlogin;
+export default PvtAdminLogin;
