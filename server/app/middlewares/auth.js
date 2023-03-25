@@ -1,5 +1,7 @@
-// const admin = require("../config/firebase-config");
 import admin from "../config/firebase-config.js";
+import dotenv from "dotenv";
+
+dotenv.config({});
 
 export const userAuthorization = async (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -17,4 +19,26 @@ export const userAuthorization = async (req, res, next) => {
   }
 };
 
-// export default userAuthorization;
+export const govtAdminAuthorization = async(req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (authHeader === `${process.env.GOVT_ADMIN_EMAIL_ID}#${process.env.GOVT_ADMIN_PASSWORD}`) {
+    return next();
+  } else {
+    res.status(401).send({ message: "Please Log in first" });
+  }
+}
+
+export const pvtAdminAuthorization = async(req, res, next) => {
+  const authHeader = req.headers.authorization;
+  console.log(authHeader, process.env.PVT_ADMIN_EMAIL_ID, process.env.PVT_ADMIN_PASSWORD);
+  if (authHeader === `${process.env.PVT_ADMIN_EMAIL_ID}#${process.env.PVT_ADMIN_PASSWORD}`) {
+    return next();
+  } else {
+    res.status(401).send({ message: "Please Log in first" });
+  }
+}
+
+export const commonAdminAuthorization = async(req, res, next) => {
+  const authHeader = req.headers.authorization;
+  next();
+}

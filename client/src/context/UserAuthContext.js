@@ -33,6 +33,7 @@ export function UserAuthContextProvider({ children }) {
   }
 
   async function logOut() {
+    console.log("LOGOUT !!");
     const res = await signOut(auth);
     setToken("");
     return res;

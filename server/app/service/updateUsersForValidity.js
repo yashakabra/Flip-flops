@@ -6,7 +6,7 @@ export const updateUsersForValidity= async (data)=>{
 
     // users.filter()
     
-    const ValidUsers = users.filter((user) => user.statusCode === 1);
+    const ValidUsers = users.filter((user) => user.statusCode === 2);
 
     return {users:ValidUsers};
 

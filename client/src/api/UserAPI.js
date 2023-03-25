@@ -1,8 +1,8 @@
 import axios from 'axios';
-
 const URL = process.env.REACT_APP_URL || 'http://localhost:8000';
 
-export const getAllUserPost = async (packet) => {
+
+export const getValidUsers = async (packet) => {
     const token = packet.token;
     try {
         return await axios.get(`${URL}/user/getValidUsers`, {
@@ -34,7 +34,7 @@ export const addUserPostDetails = async (packet) => {
 export const getSinglePostDetails = async (packet) => {
     const token = packet.token;
     try{
-        return await axios.get(`${URL}/user/${packet.email}`, {
+        return await axios.get(`${URL}/user/getSinglePostDetails/?id=${packet.email}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token,

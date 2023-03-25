@@ -9,7 +9,7 @@ function AdminCard(props) {
   const {details} = props;
   console.log(details);
   const cardSelect = () => {
-    navigate(`/adminpanel/${details.email}`);
+    navigate(`/pvtadminpanel/${details.email}`);
   }
 
   return (

@@ -83,4 +83,34 @@ export const getValidUsers = async (request, response) => {
   }
 };
 
+//////
+
+const getUserById = async (res, id) => {
+  const users = res.users;
+
+  let user;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].email === id) {
+      user = users[i];
+      break;
+    }
+  }
+  return { user: user };
+};
+
+
+export const getSinglePostDetails = async (request, response) => {
+ 
+  const {id} = request.query;
+  const res = await listUploads();
+
+  const res2 = await getUserById(res, id);
+
+  try {
+    response.status(200).json(res2.user);
+  } catch (error) {
+    response.status(401).json({ message: error.message });
+  }
+};
+
 // module.exports = {addUserPostDetails};

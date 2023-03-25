@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/UserLogin.css'
 import signimg from '../images/Sign.jpg'
 import { Alert } from 'react-bootstrap';
@@ -9,7 +9,7 @@ import { useUserAuth } from '../../context/UserAuthContext';
 const UserLogin = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { logIn } = useUserAuth();
+    const { logIn, logOut } = useUserAuth();
 
     const navigate = useNavigate();
     const [error, setError] = useState("");
@@ -24,6 +24,14 @@ const UserLogin = () => {
             setError(err.message);
         }
     };
+
+    const logout = async () => {
+        await logOut();
+    }
+
+    useEffect(()=>{
+        logout();
+    },[]);
 
     return (
         <>

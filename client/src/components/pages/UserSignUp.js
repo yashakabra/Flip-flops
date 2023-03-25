@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "react-bootstrap";
-import signimg from '../images/Sign.jpg';
 import '../styles/UserLogin.css'
 import { useUserAuth } from "../../context/UserAuthContext.js";
 import { Alert } from "react-bootstrap";
 import { useNavigate } from "react-router";
-
+import { useEffect } from "react";
 
 
 const UserSignUp = (props) => {
@@ -13,7 +12,7 @@ const UserSignUp = (props) => {
     const [password, setPassword] = useState("");
     const [error, setError]  =useState("");
     const [loading, setLoading] = useState(false);
-    const {signUp, user} = useUserAuth();
+    const {signUp, user, logOut} = useUserAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async(event) => {
@@ -30,7 +29,13 @@ const UserSignUp = (props) => {
         setLoading(false);
     }
 
-    // console.log(process.env.API_KEY)
+    const logout = async () => {
+        await logOut();
+    }
+
+    useEffect(()=>{
+        logout();
+    },[]);
 
     return (
         <div className="maincontainer">

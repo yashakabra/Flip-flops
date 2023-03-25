@@ -8,7 +8,7 @@ import easytouse from '../images/easytouse.png';
 import { useState, useEffect } from "react";
 import { useUserAuth } from "../../context/UserAuthContext";
 import HomePageCard from "../utils/HomePageCard";
-import { getAllUserPost } from "../../api/UserAPI";
+import { getValidUsers } from "../../api/UserAPI";
 
 const Home = (props) => {
     
@@ -20,7 +20,7 @@ const Home = (props) => {
       const packet = {
         token:token,
       };
-      const response = await getAllUserPost(packet);
+      const response = await getValidUsers(packet);
       setPosts(response.data);
     };
     fetchData();

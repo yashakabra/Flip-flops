@@ -23,7 +23,7 @@ const AddStory = () => {
   const [date, setDate] = useState('');
   const [blog, setBlog] = useState('');
   const [imageUpload, setImageUpload] = useState(null);
-
+  const {user} = useUserAuth();
 
   const uploadImage = async () => {
     console.log(imageUpload);
@@ -62,6 +62,7 @@ const AddStory = () => {
     await uploadImage();
     console.log("NBVC");
     const data = {
+      email:user.email,
       name: name,
       age: age,
       place: place,
@@ -73,6 +74,7 @@ const AddStory = () => {
       date: date,
       blog: blog,
       photo: IMG_URL,
+      statusCode:0,
     };
     const packet = {
       token: token,

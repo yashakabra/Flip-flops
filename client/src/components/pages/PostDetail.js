@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../styles/PostDetails.css";
 import pic from '../images/profile.jpg';
@@ -25,17 +25,22 @@ const defaultValue = {
 const PostDetails = () => {
 
   const {token, user} = useUserAuth();
-  const {email} = useParams();
+  const email = useParams().id;
   const [post, setPost] = useState(defaultValue);
 
   const fetchDetails = async () => {
     const packet = {
       token : token,
-      email: user.email,
+      email: email,
     }
     const response = await getSinglePostDetails(packet);
-    setPost(response);
+    setPost(response.data);
   }
+
+  useEffect(()=>{
+    if(token == null)return;
+    fetchDetails();
+  }, [token]);
 
   return (
     <>
@@ -50,7 +55,7 @@ const PostDetails = () => {
           <span class="d-none d-lg-block">
             <img
               class="img-fluid img-profile rounded-circle mx-auto mb-2"
-              src={pic}
+              src={post.photo}
               alt="..."
             />
           </span>

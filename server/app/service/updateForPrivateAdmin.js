@@ -1,8 +1,8 @@
-export const updateForUnverifiedUsers = async (data) => {
+export const updateForPrivateAdmin = async (data) => {
     const users = data.users;
     console.log(users.length);
     const cnt = new Map();
-  
+    
     for(let i=0;i<users.length;i++)
     {
       let name=users[i].email;
