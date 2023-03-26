@@ -14,9 +14,6 @@
 ## Presentation Link:
   <a href="https://drive.google.com/file/d/1ZP0LDOrbzXmHo2PWeoBsKivt2hl99Yp-/view?usp=share_link"> PPT link here </a>
   
-  
-## Table of Contents:
-
 ## Technology Stack:
   1) React JS
   2) Express
