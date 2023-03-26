@@ -6,7 +6,7 @@
 
 
 ## Introduction:
-  Brief description of the project
+  Our project connects authentic people who have suffrered from any disaster and need help, we provide people assurance that they are donating to the right person and the money is going into the right account as our data of user is stored on IPFS using Filecoin.
   
 ## Demo Video Link:
   <a href="[https://youtu.be/dQw4w9WgXcQ](https://drive.google.com/file/d/12ljgwd3ipKcMGfFVrZNdTPL-UG8GiUSi/view?usp=share_link)">[Video](https://drive.google.com/file/d/12ljgwd3ipKcMGfFVrZNdTPL-UG8GiUSi/view?usp=share_link)</a>
