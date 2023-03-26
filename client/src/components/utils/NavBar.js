@@ -7,9 +7,9 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="Navbar">
-        <span className="nav-logo" >     HelpingHand</span>
-        <div className={`nav-items ${isOpen && "open"}`}>
+      <div className="Navbar" style={{backgroundColor:"#dffaff"}}>
+        <span className="nav-logo m-5" >     HelpingHand</span>
+        <div className={`nav-items ${isOpen && "open"}`} style={{marginRight:"40px"}}>
           <a href="/home">Home</a>
 
           <a href="/addstory">Add My Story</a>
