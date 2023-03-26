@@ -1,6 +1,6 @@
 import '../styles/AddStory.css';
 import { useState, react, useEffect } from 'react';
-import adminloginimg from '../images/Anxiety.png';
+import adminloginimg from '../images/Anxiety.gif';
 import { Button, Row, Col, Image } from 'react-bootstrap';
 import { TextField, MenuItem, Card, Typography, Box } from "@mui/material";
 import BorderColorIcon from '@mui/icons-material/BorderColor';
@@ -9,6 +9,7 @@ import { addUserPostDetails } from "../../api/UserAPI";
 import { storage } from '../../service/firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
+import { useNavigate } from 'react-router-dom';
 
 let IMG_URL;
 const AddStory = () => {
@@ -24,6 +25,7 @@ const AddStory = () => {
   const [blog, setBlog] = useState('');
   const [imageUpload, setImageUpload] = useState(null);
   const {user} = useUserAuth();
+  const navigate = useNavigate();
 
   const uploadImage = async () => {
     console.log(imageUpload);
@@ -80,8 +82,9 @@ const AddStory = () => {
       token: token,
       data: data,
     };
-    console.log(packet);
+    console.log("INSIDE ADD STORY", packet);
     await addUserPostDetails(packet);
+    navigate('/home');
   };
 
   const disasters = [
@@ -142,16 +145,16 @@ const AddStory = () => {
                 alt=""
                 style={{
                   border: "none",
-                  height: "70%",
-                  width: "90%",
+                  width: "80%",
                   marginTop: "110px",
                   marginLeft: "60px",
+                  height:"80%"
                 }}
               />
             </div>
             <div
               class="col-md-6 "
-              style={{ overflow: "auto", maxHeight: "710px" }}
+              style={{ overflow: "auto", maxHeight: "890px",marginBottom:"20px"}}
             >
               <div class="login d-flex align-items-center py-9">
                 <div class="container mt-5">
@@ -210,36 +213,19 @@ const AddStory = () => {
 
                         <Row>
                           <Col>
-                            {/* <Box
-                              component="form"
-                              sx={{
-                                "& .MuiTextField-root": { m: 1, width: "17ch" },
-                              }}
-                              noValidate
-                              autoComplete="off"
-                            > */}
-                              {/* <div>
-                                <TextField
-                                  id="outlined-select-currency"
-                                  select={0}
-                                  label="Type of Disaster that affected"
-                                  defaultValue="Earthquake"
-                                  helperText=""
-                                  value={disasterType}
-                                  onChange={(e) => {
-                                    setDisasterType(e.target.value);
-                                  }}
-                                />
-                                {disasters.map((option) => (
-                                  <MenuItem
-                                    key={option.value}
-                                    value={option.value}
-                                  >
-                                    {option.label}
-                                  </MenuItem>
-                                ))}
-                              </div> */}
-                            {/* </Box> */}
+                          <TextField
+                          margin="normal"
+                          required
+                          fullWidth
+                          name="disasterType"
+                          label="Disaster type"
+                          type="text"
+                          id="disasterType"
+                          value={disasterType}
+                          onChange={(e) => {
+                            setDisasterType(e.target.value);
+                          }}
+                        />
                           </Col>
                           <Col>
                             <TextField
@@ -293,7 +279,7 @@ const AddStory = () => {
                           required
                           fullWidth
                           name="upi"
-                          label="UPI ID Number"
+                          label="UPI/Blockchain ID Number"
                           type="text"
                           id="upi"
                           value={upiId}
@@ -301,7 +287,20 @@ const AddStory = () => {
                             setUpiId(e.target.value);
                           }}
                         />
-                        <TextField
+                        {/* <TextField
+                          margin="normal"
+                          required
+                          fullWidth
+                          name="upi"
+                          label="Blockchain ID Number"
+                          type="text".
+                          id="upi"
+                          value={upiId}
+                          onChange={(e) => {
+                            setUpiId(e.target.value);
+                          }}
+                        /> */}
+                        {/* <TextField
                           margin="normal"
                           required
                           fullWidth
@@ -314,7 +313,7 @@ const AddStory = () => {
                           onChange={(e) => {
                             setAmountNeeded(e.target.value);
                           }}
-                        />
+                        /> */}
                           
 
                         
@@ -368,7 +367,7 @@ const AddStory = () => {
                             class="btn  btn-block text-uppercase mb-2  shadow-sm"
                             style={{ background: "#0095b6", color: "white" }}
                           >
-                            Sign in
+                            Submit
                           </button>
                         </div>
                       </form>

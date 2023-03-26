@@ -209,12 +209,12 @@ button {
   position: relative;
   padding: 10px 25px;
   color: #fff;
-  border-radius: 15px;
+  /* border-radius: 5px; */
   font-weight: 500;
   font-size: 15px;
-  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-  opacity: 0.75;
-  background-color: #0095b6;
+  /* text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25); */
+  opacity: 1;
+  background-color:#0d7183;
   cursor: pointer;
   margin-top: 10px;
 }
@@ -223,15 +223,15 @@ button:hover {
   opacity: 1;
 }
 
-button::before {
+/* button::before {
    position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 65%;
   height: 5px;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.3);
-}
+  background: blue;
+} */
 
 h2 {
   padding-bottom: 10px;

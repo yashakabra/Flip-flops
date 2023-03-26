@@ -25,7 +25,7 @@ function HomePageCard(props) {
             <p>{details.disasterType}</p>
             <p>Support Required-${details.amountNeeded}</p>
           </div>
-          <button onClick={cardSelect}>Know more</button>
+          <button onClick={cardSelect} style={{borderRadius:"5px"}}>Know more</button>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import pic from '../images/profile.jpg';
 import { useUserAuth } from "../../context/UserAuthContext";
 import { getSinglePostDetails } from "../../api/UserAPI";
 import { useState } from "react";
+import { grey } from "@mui/material/colors";
 
 const defaultValue = {
       email: "",
@@ -23,6 +24,16 @@ const defaultValue = {
 }
 
 const PostDetails = () => {
+  const [textToCopy,setTextToCopy] = useState("123456789");
+
+  const handleCopyClick = async () => {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      console.log('Text copied to clipboard');
+    } catch (err) {
+      console.error('Error copying text: ', err);
+    }
+  }
 
   const {token, user} = useUserAuth();
   const email = useParams().id;
@@ -88,10 +99,16 @@ const PostDetails = () => {
                 Lost worth- ${post.amountNeeded} 
               </div>
             </li>
-            <li>
-            <button type="button" class="btn btn-primary" style={{fontWeight:"500",color:"black",backgroundColor:"white",border:"2px solid blue"}}>Donations Received-$200</button>
+            <li class="nav-item">
+              <div class="nav-link js-scroll-trigger" >
+                UPI ID-<span style={{textDecoration:"underline"}}>{textToCopy}</span>
+                <div>
+      <button onClick={handleCopyClick} style={{fontSize:"10px",borderRadius:"3px",fontWeight:"500",padding:"2px 2px",backgroundColor:"grey"}}>Copy UPI to clipboard</button>
+    </div>
 
+              </div>
             </li>
+           
           </ul>
         </div>
       </nav>
