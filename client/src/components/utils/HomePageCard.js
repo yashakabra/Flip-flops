@@ -18,7 +18,7 @@ function HomePageCard(props) {
     <div className="card-container mt-3">
       <div className="drop" >
         <div className="content">
-          <img className="profile" src={pic}></img>
+          <img className="profile" src={details.photo}></img>
           <div className="info">
             <h2>{details.name}</h2>
             <p>{details.place}</p>
